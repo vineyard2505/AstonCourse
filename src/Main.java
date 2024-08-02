@@ -7,7 +7,6 @@ public class Main {
         //System.out.println(checkSum(5,6));
         //checkNumber(-7);
         //System.out.println(checkNumberTrue(-8));
-
     }
     //Задание 1
     public static void printThreeWords(){
