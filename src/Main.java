@@ -7,7 +7,7 @@ public class Main {
         System.out.println(Task5.checkSum(5,6));
         Task6.checkNumber(-7);
         System.out.println(Task7.checkNumberTrue(-8));
-        Task8.writeStr("Bkkjjkk", 3);
+        Task8.writeStr("Aston", 3);
         int year = 2023;
         System.out.println(year + " is a leap year: " + Task9.highYear(year));
         Task10.changeNum();
