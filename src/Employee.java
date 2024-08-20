@@ -5,6 +5,7 @@ public class Employee {
     private String numberPhone;
     private double salary;
     private int age;
+
     public Employee(String FIO, String post, String email, String numberPhone, double salary, int age){
         this.FIO = FIO;
         this.post = post;
