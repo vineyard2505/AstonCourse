@@ -8,7 +8,6 @@ public class Park {
         this.attractions = new Attraction[maxAttractions];
         this.attractionCount = 0;
     }
-
     public void addAttraction(String nameAttraction, String time, double cost){
         if (attractionCount < attractions.length) {
             attractions[attractionCount++] = new Attraction(nameAttraction, time, cost);
@@ -16,7 +15,6 @@ public class Park {
             System.out.println("Невозможно добавить аттракцион: максимальное количество достигнуто.");
         }
     }
-
     public void printNameAttractions(){
         System.out.println("Аттракционы в парке " + namePark + ":");
         for (int i = 0; i < attractionCount; i++) {
