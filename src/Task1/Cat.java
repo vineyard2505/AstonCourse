@@ -31,10 +31,10 @@ public class Cat extends Animal {
         if (bowl.getFoodBowl() >= foodAmount) {
             bowl.underFood(foodAmount);
             this.isFull = true;
-            System.out.println(name + " покушал и теперь сыт.");
+            System.out.println(name + " покушал");
         } else {
             this.isFull = false;
-            System.out.println(name + " не может покушать. В тарелке недостаточно еды.");
+            System.out.println(name + " не может покушать. В тарелке недостаточно еды");
         }
     }
     public boolean isFull() {

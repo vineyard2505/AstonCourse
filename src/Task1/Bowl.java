@@ -13,13 +13,13 @@ public class Bowl {
         if (foodBowl - amount >= 0) {
             foodBowl -= amount;
         } else {
-            System.out.println("В тарелке недостаточно еды.");
+            System.out.println("В тарелке недостаточно еды");
         }
     }
     public void addFood(int amount) {
         if (amount > 0) {
             foodBowl += amount;
-            System.out.println("В тарелку добавлено " + amount + " единиц еды.");
+            System.out.println("В тарелку добавлено " + amount + " порций еды");
         }
     }
 }
