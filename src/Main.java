@@ -1,67 +1,57 @@
 public class Main {
     public static void main(String[] args) {
-        //printThreeWords();
-        //checkSumSign();
-        //printColor();
-        //compareNumbers();
-        //System.out.println(checkSum(5,6));
-        //checkNumber(-7);
-        //System.out.println(checkNumberTrue(-8));
+        String[][] arrTrue = {
+                {"1", "1", "1", "1"},
+                {"2", "2", "2", "2"},
+                {"3", "3", "3", "3"},
+                {"4", "4", "4", "4"}
+        };
+        String[][] arrFalseSize = {
+                {"1", "1", "1"},
+                {"2", "2", "2"},
+                {"3", "3", "3"}
+        };
+        String[][] arrFalseData = {
+                {"1", "one", "1", "1"},
+                {"2", "2", "2", "2"},
+                {"3", "3", "3", "3"},
+                {"4", "4", "4", "4"}
+        };
 
-    }
-    //Задание 1
-    public static void printThreeWords(){
-        System.out.println("Orange");
-        System.out.println("Banana");
-        System.out.println("Apple");
-    }
-    //Задание 2
-    public static void checkSumSign(){
-        int a = 10;
-        int b = 12;
-        int sum = a + b;
-        if (sum >= 0){
-            System.out.println("Сумма положительная");
-        } else {
-            System.out.println("Сумма отрицательная");
+        try {
+            int sum = verificationArr(arrTrue);
+            System.out.println("Сумма элементов массива: " + sum);
+        } catch (MyArraySizeException | MyArrayDataException e) {
+            System.err.println(e.getMessage());
+        }
+        try {
+            int sum = verificationArr(arrFalseSize);
+            System.out.println("Сумма элементов массива: " + sum);
+        } catch (MyArraySizeException | MyArrayDataException e) {
+            System.err.println(e.getMessage());
+        }
+        try {
+            int sum = verificationArr(arrFalseData);
+            System.out.println("Сумма элементов массива: " + sum);
+        } catch (MyArraySizeException | MyArrayDataException e) {
+            System.err.println(e.getMessage());
         }
     }
-    //Задание 3
-    public static void printColor(){
-        int value = 200;
-        if (value <= 0){
-            System.out.println("Красный");
-        } else if (value <= 100) {
-            System.out.println("Желтый");
-        } else {
-            System.out.println("Зеленый");
+
+    public static int verificationArr(String[][] array) {
+        if (array.length != 4 || array[0].length != 4) {
+            throw new MyArraySizeException("Неверный размер массива");
         }
-    }
-    //Задание 4
-    public static void compareNumbers(){
-        int a = 10;
-        int b = 12;
-        if(a >= b){
-            System.out.println("a >= b");
-        } else {
-            System.out.println("a < b");
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                try {
+                    sum += Integer.parseInt(array[i][j]);
+                } catch (NumberFormatException e) {
+                    throw new MyArrayDataException("Неверный тип данных в ячейке [" + i + "][" + j + "]: '" + array[i][j] + "'");
+                }
+            }
         }
-    }
-    //Задание 5
-    public static boolean checkSum(int oneNum, int twoNum){
-        int sum = oneNum + twoNum;
-        return sum >= 10 && sum <= 20;
-    }
-    //Задание 6
-    public static void checkNumber(int a){
-        if(a <= 0){
-            System.out.println("Отрицательное");
-        } else {
-            System.out.println("Положительное");
-        }
-    }
-    //Задание 7
-    public static boolean checkNumberTrue(int num){
-        return num<0;
+        return sum;
     }
 }
