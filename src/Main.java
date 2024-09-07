@@ -7,8 +7,9 @@ public class Main {
                 {"4", "4", "4", "4"}
         };
         String[][] arrFalseSize = {
-                {"1", "1", "1"},
+                {"1", "1", "1", "1"},
                 {"2", "2", "2"},
+                {"3", "3", "3"},
                 {"3", "3", "3"}
         };
         String[][] arrFalseData = {
@@ -39,8 +40,13 @@ public class Main {
     }
 
     public static int verificationArr(String[][] array) {
-        if (array.length != 4 || array[0].length != 4) {
-            throw new MyArraySizeException("Неверный размер массива");
+        if (array.length != 4) {
+            throw new MyArraySizeException("Неверный размер массива: ожидается 4 строки, найдены " + array.length);
+        }
+        for (String[] row : array) {
+            if (row.length != 4) {
+                throw new MyArraySizeException("Неверный размер массива: ожидается 4 колонки, найдена строка длиной " + row.length);
+            }
         }
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
