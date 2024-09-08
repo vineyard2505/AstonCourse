@@ -1,67 +1,34 @@
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
-        //printThreeWords();
-        //checkSumSign();
-        //printColor();
-        //compareNumbers();
-        //System.out.println(checkSum(5,6));
-        //checkNumber(-7);
-        //System.out.println(checkNumberTrue(-8));
+        task1();
+        task2();
+    }
 
-    }
-    //Задание 1
-    public static void printThreeWords(){
-        System.out.println("Orange");
-        System.out.println("Banana");
-        System.out.println("Apple");
-    }
-    //Задание 2
-    public static void checkSumSign(){
-        int a = 10;
-        int b = 12;
-        int sum = a + b;
-        if (sum >= 0){
-            System.out.println("Сумма положительная");
-        } else {
-            System.out.println("Сумма отрицательная");
+    private static void task1() {
+        String[] words = {"Taty", "Taty", "Snow", "Snow", "Main", "Bag", "Stop", "Head", "Hello", "World", "Name"};
+        Set<String> wordsSet = new HashSet<>(Arrays.asList(words));
+        System.out.println(wordsSet);
+        List<String> wordsList = new ArrayList<>(Arrays.asList(words));
+        Map<String, Integer> wordCount = new HashMap<>();
+        for (String word : wordsList) {
+            wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+        }
+
+        for (Map.Entry<String, Integer> entry : wordCount.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
         }
     }
-    //Задание 3
-    public static void printColor(){
-        int value = 200;
-        if (value <= 0){
-            System.out.println("Красный");
-        } else if (value <= 100) {
-            System.out.println("Желтый");
-        } else {
-            System.out.println("Зеленый");
-        }
-    }
-    //Задание 4
-    public static void compareNumbers(){
-        int a = 10;
-        int b = 12;
-        if(a >= b){
-            System.out.println("a >= b");
-        } else {
-            System.out.println("a < b");
-        }
-    }
-    //Задание 5
-    public static boolean checkSum(int oneNum, int twoNum){
-        int sum = oneNum + twoNum;
-        return sum >= 10 && sum <= 20;
-    }
-    //Задание 6
-    public static void checkNumber(int a){
-        if(a <= 0){
-            System.out.println("Отрицательное");
-        } else {
-            System.out.println("Положительное");
-        }
-    }
-    //Задание 7
-    public static boolean checkNumberTrue(int num){
-        return num<0;
+
+    private static void task2(){
+        TelephoneDirectory telDirectory = new TelephoneDirectory();
+        telDirectory.add("Vinogradova", "+375333351327");
+        telDirectory.add("Sergeeva", "+375298855000");
+        telDirectory.add("Kuzuk", "+375290055777");
+        telDirectory.add("Sergeeva", "+375298899111");
+
+        System.out.println(telDirectory.get("Vinogradova"));
+        System.out.println(telDirectory.get("Sergeeva"));
     }
 }
